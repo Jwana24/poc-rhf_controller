@@ -1,0 +1,15 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.Spaces {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.Errors {
+  color: red;
+}
