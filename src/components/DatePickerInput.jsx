@@ -4,8 +4,6 @@ import { ErrorMessage } from "@hookform/error-message";
 
 const DatePickerInput = ({ labelValue, inputName, control, errors }) => {
 
-  const handleDateSelect = () => console.log('pop!');
-
   return (
     <div className="Spaces">
       <label>{labelValue}</label>
@@ -13,7 +11,7 @@ const DatePickerInput = ({ labelValue, inputName, control, errors }) => {
         name={inputName}
         control={control}
         render={({ field: { value, onChange } }) => (
-          <DatePicker selected={value} onChange={onChange} onSelect={handleDateSelect} />
+          <DatePicker selected={value} onChange={onChange} />
         )}
       />
       <ErrorMessage
