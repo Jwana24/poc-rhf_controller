@@ -1,10 +1,15 @@
 import { useForm } from "react-hook-form";
+
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputField from "./components/InputField";
-import DatePickerInput from "@/components/DatePickerInput.jsx";
 
-import './App.css'
+import DatePickerInput from "@/components/DatePickerInput.jsx";
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+import 'dayjs/locale/fr';
+
+import './App.css';
 
 const validationSchema = yup.object({
   firstName: yup.string().required("Le prénom est requis"),
@@ -32,7 +37,7 @@ function App() {
   const onSubmit = (data) => console.log(data)
 
   return (
-    <>
+    <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="fr">
       <form onSubmit={handleSubmit(onSubmit)}>
         <InputField labelValue="Prénom" inputName="firstName" control={control} errors={errors} />
         <InputField labelValue="Nom de famille" inputName="lastName" control={control} errors={errors} />
@@ -42,7 +47,7 @@ function App() {
 
         <button type='submit'>Envoyer</button>
       </form>
-    </>
+    </LocalizationProvider>
   )
 }
 
